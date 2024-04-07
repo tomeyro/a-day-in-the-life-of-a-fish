@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bicc2lyc5u17k"]
+
+[ext_resource type="Script" path="res://src/entities/pike/pike.gd" id="1_b3sln"]
+[ext_resource type="Material" uid="uid://bfc34sndr1832" path="res://res/materials/shake/shake_material.tres" id="2_ggwce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccjsj"]
+size = Vector2(26, 15)
+
+[node name="Pike" type="Node2D"]
+script = ExtResource("1_b3sln")
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="TeethTop" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(20, 1, 22, 3, 23, 1, 25, 2, 25, 0, 28, 2, 28, 0, 30, 1, 30, -1, 32, 0, 32, -2, 34, -1, 34, -3)
+
+[node name="TeethBottom" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+position = Vector2(49, 21)
+rotation = -2.5176
+color = Color(0.807843, 0.807843, 0.807843, 1)
+polygon = PackedVector2Array(20, 1, 22, 3, 23, 1, 25, 2, 25, 0, 28, 2, 28, 0, 30, 1, 30, -1, 32, 0, 32, -2, 34, -1, 34, -3)
+
+[node name="FingTopRight" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+position = Vector2(-7, 9)
+color = Color(0.517647, 0.47451, 0.2, 1)
+polygon = PackedVector2Array(7, -11, 11, -16, 9, -20, 1, -23, -6, -17, 1, -9)
+
+[node name="FingBottomRight" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+position = Vector2(-24, 1)
+color = Color(0.517647, 0.47451, 0.2, 1)
+polygon = PackedVector2Array(27, 3, 41, 4, 36, 12, 29, 16, 23, 14)
+
+[node name="FingBottomLeft" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+position = Vector2(-43, -2)
+color = Color(0.517647, 0.47451, 0.2, 1)
+polygon = PackedVector2Array(27, 3, 41, 4, 36, 12, 29, 16, 23, 14, 21, 7)
+
+[node name="Body" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+color = Color(0.768627, 0.654902, 0.368627, 1)
+polygon = PackedVector2Array(27, -7, 34, -3, 27, 0, 20, 2, 27, 4, 34, 7, 25, 11, 18, 10, 13, 7, 3, 11, -8, 9, -24, 2, -33, 8, -33, 9, -33, -7, -24, -1, -8, -6, 2, -8, 13, -5, 21, -8)
+
+[node name="StripeRight" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+position = Vector2(-43, 1)
+color = Color(0.235294, 0.101961, 0.0196078, 1)
+polygon = PackedVector2Array(45, -5, 46, -2, 47, 1, 49, 4, 50, 5, 51, 4, 52, 0, 53, -4, 49, -7, 46, -7)
+
+[node name="StripeLeft" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+position = Vector2(-59, -1)
+color = Color(0.235294, 0.101961, 0.0196078, 1)
+polygon = PackedVector2Array(46, -1, 45, 1, 47, 5, 50, 7, 53, 6, 55, 1, 52, -1, 49, -3)
+
+[node name="Eye" type="Polygon2D" parent="Sprite"]
+material = ExtResource("2_ggwce")
+position = Vector2(48, 30)
+rotation = -0.120999
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-22.578, -38.0031, -24.684, -37.2518, -22.9401, -35.025, -19.7206, -36.6483)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(20, 1.5)
+shape = SubResource("RectangleShape2D_ccjsj")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

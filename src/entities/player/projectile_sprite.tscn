@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlb82mjmfpqtn"]
+
+[ext_resource type="Material" uid="uid://bfc34sndr1832" path="res://res/materials/shake/shake_material.tres" id="1_76v8c"]
+
+[node name="ProjectileSprite" type="Node2D"]
+
+[node name="Skeleton" type="Node2D" parent="."]
+scale = Vector2(0.4, 0.25)
+
+[node name="Body" type="Polygon2D" parent="Skeleton"]
+material = ExtResource("1_76v8c")
+color = Color(0.815686, 0.85098, 0.858824, 1)
+polygon = PackedVector2Array(29, -9, 33, -3, 30, -1, 20, 3, 30, 5, 33, 7, 27, 11, 12, 13, 11, 1, 5, 1, 4, 12, 1, 10, 1.99699, 0.307465, -2, 0, -4.06671, 0.103336, -5, 12, -7, 12, -6.57606, 0.228804, -14, 1, -15, 12, -16, 12, -15.9277, 0.696384, -22, 1, -33, 9, -33, 9, -33, 5, -26, 1, -33, 1, -33, -2, -26, -2, -33, -6, -33, -10, -22, -4, -17, -3, -16, -12, -15, -13, -15, -2, -8, -2, -8, -12, -7, -14, -5.47017, -2.13315, 1.98147, -2.52534, 2, -12, 4, -13, 6, -3, 11, -3, 12, -14, 23, -12)
+
+[node name="Eye" type="Polygon2D" parent="Skeleton"]
+material = ExtResource("1_76v8c")
+position = Vector2(46, 27)
+rotation = -0.120999
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-22.3366, -39.9885, -24.8047, -36.2591, -22.1888, -32.919, -19.7206, -36.6483)

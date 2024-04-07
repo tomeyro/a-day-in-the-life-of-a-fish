@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://tf54li2hcjt3"]
+
+[ext_resource type="Script" path="res://src/entities/player/projectile.gd" id="1_bwcuk"]
+[ext_resource type="PackedScene" uid="uid://dlb82mjmfpqtn" path="res://src/entities/player/projectile_sprite.tscn" id="2_di1yy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dfe4n"]
+radius = 4.0
+height = 28.0
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_bwcuk")
+
+[node name="Sprite" parent="." instance=ExtResource("2_di1yy")]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dfe4n")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

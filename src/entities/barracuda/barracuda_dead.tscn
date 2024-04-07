@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://duiigt4ck0xwe"]
+
+[ext_resource type="Material" uid="uid://bfc34sndr1832" path="res://res/materials/shake/shake_material.tres" id="1_drjfa"]
+[ext_resource type="Script" path="res://src/entities/barracuda/barracuda_dead.gd" id="1_x12ry"]
+
+[sub_resource type="Animation" id="Animation_i14l4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4js0p"]
+resource_name = "float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-15, 2.08165e-12), Vector2(15, 2.08165e-12), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e68e3"]
+_data = {
+"RESET": SubResource("Animation_i14l4"),
+"float": SubResource("Animation_4js0p")
+}
+
+[node name="BarracudaDead" type="Node2D"]
+script = ExtResource("1_x12ry")
+
+[node name="Sprite" type="Node2D" parent="."]
+scale = Vector2(1, -1)
+
+[node name="MouthTop" type="Polygon2D" parent="Sprite"]
+material = ExtResource("1_drjfa")
+position = Vector2(53, 19.0001)
+rotation = -0.0941832
+color = Color(0.498039, 0.254902, 0.701961, 1)
+polygon = PackedVector2Array(-11, -43, 12.635, -40.5121, 27, -39, 42.0612, -29.1161, 59, -18, 30.0392, -17.1482, 7.3241, -16.4801, -9, -16)
+
+[node name="TeethTop" type="Polygon2D" parent="Sprite/MouthTop"]
+show_behind_parent = true
+material = ExtResource("1_drjfa")
+polygon = PackedVector2Array(-5.0881, -20.5697, 1.22257, -12.9424, 3.68393, -17.7321, 8.7169, -7.21219, 11.5544, -15.9842, 16.9636, -9.44654, 19.7071, -17.223, 24.0266, -9.7838, 32.9316, -18.9871, 35.8794, -7.65971, 41.7976, -17.1452, 52.804, -6.06096, 51.0399, -19.2855)
+
+[node name="MouthBottom" type="Polygon2D" parent="Sprite"]
+material = ExtResource("1_drjfa")
+position = Vector2(35, 22.0001)
+rotation = 0.139626
+color = Color(0.498039, 0.254902, 0.701961, 1)
+polygon = PackedVector2Array(-13, 5, 7.85072, 5.9929, 29, 7, 49.8489, -4.08983, 76, -18, 59.4847, -18.3979, 38.2044, -18.9107, 13.3606, -19.5094, -7, -20)
+
+[node name="TeethBottom" type="Polygon2D" parent="Sprite/MouthBottom"]
+show_behind_parent = true
+material = ExtResource("1_drjfa")
+position = Vector2(64.8492, -34.3597)
+rotation = 3.1044
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(-5.0881, -20.5697, 1.22257, -12.9424, 3.68393, -17.7321, 8.7169, -7.21219, 11.5544, -15.9842, 16.9636, -9.44654, 19.7071, -17.223, 24.0266, -9.7838, 32.9316, -18.9871, 35.8794, -7.65971, 41.7976, -17.1452, 52.804, -6.06096, 51.0399, -19.2855)
+
+[node name="FingTop" type="Polygon2D" parent="Sprite"]
+material = ExtResource("1_drjfa")
+position = Vector2(49, 18.0001)
+rotation = -0.0795578
+color = Color(0.498039, 0.254902, 0.701961, 1)
+polygon = PackedVector2Array(-29.7961, -41.4993, -54.9623, -65.5755, -54.6807, -56.5245, -65.328, -61.386, -63.8907, -54.2492, -69.7922, -55.7229, -72.3422, -48.904, -80.158, -51.5335, -79.118, -39.4125)
+
+[node name="FingBottomRight" type="Polygon2D" parent="Sprite"]
+material = ExtResource("1_drjfa")
+position = Vector2(49, 18.0001)
+rotation = -0.0795578
+color = Color(0.498039, 0.254902, 0.701961, 1)
+polygon = PackedVector2Array(-55.6639, -6.44421, -66.9039, 8.71044, -64.6286, 17.9204, -40.2708, 1.80523)
+
+[node name="FingBottomLeft" type="Polygon2D" parent="Sprite"]
+material = ExtResource("1_drjfa")
+position = Vector2(-11, 10.0001)
+rotation = -0.0795578
+color = Color(0.498039, 0.254902, 0.701961, 1)
+polygon = PackedVector2Array(-55.6639, -6.44421, -63.516, 3.96468, -64.6286, 17.9204, -40.2708, 1.80523)
+
+[node name="Body" type="Polygon2D" parent="Sprite"]
+material = ExtResource("1_drjfa")
+position = Vector2(49, 18)
+color = Color(0.658824, 0.423529, 0.870588, 1)
+polygon = PackedVector2Array(-25, 10, 1, -3, 0, -42, -17.4899, -43.2493, -42, -45, -70.9359, -40.265, -97, -36, -116.323, -28.6885, -134, -22, -147.049, -33.9141, -157, -43, -153, 12, -143.309, 2.79399, -133, -7, -112, -2, -92, 2, -64.1454, 5.74966, -40, 9)
+
+[node name="Eye" type="Polygon2D" parent="Sprite"]
+material = ExtResource("1_drjfa")
+position = Vector2(53, 19.0001)
+rotation = -0.120999
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-13.523, -37.9096, -9.91439, -34.4487, -15.4814, -30.0888, -13.4689, -21.7851, -16.6884, -20.1619, -19.9349, -26.6008, -28.48, -22.603, -32.33, -24.0785, -23.5436, -30.0617, -28.7755, -36.7421, -25.4353, -39.358, -20.0827, -33.6703)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e68e3")
+}
+autoplay = "float"

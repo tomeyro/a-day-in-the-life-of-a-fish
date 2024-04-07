@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://obqjc1y314sx"]
+
+[ext_resource type="Script" path="res://src/scenes/splash/splash.gd" id="1_41umy"]
+[ext_resource type="Material" uid="uid://bfc34sndr1832" path="res://res/materials/shake/shake_material.tres" id="2_l0ylj"]
+[ext_resource type="FontFile" uid="uid://07jtmouf4f6t" path="res://res/fonts/catfiles/Catfiles.ttf" id="3_diq44"]
+
+[node name="Splash" type="Node2D"]
+script = ExtResource("1_41umy")
+
+[node name="Content" type="Node2D" parent="."]
+
+[node name="Godot" type="Node2D" parent="Content"]
+position = Vector2(400, 400)
+
+[node name="Polygon2D" type="Polygon2D" parent="Content/Godot"]
+material = ExtResource("2_l0ylj")
+color = Color(0.207843, 0.505882, 0.705882, 1)
+polygon = PackedVector2Array(-117, -22, -117, 83, -100, 101, -71, 117, -29, 127, 27, 127, 66, 117, 101, 100, 117, 80, 118, -22, 134, -46, 110, -77, 87, -67, 62, -84, 64, -113, 27, -124, 14, -100, -13, -99, -27, -125, -65, -113, -60, -87, -86, -65, -109, -78, -134, -48)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Content/Godot"]
+material = ExtResource("2_l0ylj")
+polygon = PackedVector2Array(-69, 51, -67, 73, -31, 75, -28, 55, 28, 55, 30, 75, 68, 74, 70, 52, 118, 48, 118, 57, 79, 59, 78, 83, 21, 85, 19, 67, -18, 66, -21, 86, -77, 85, -78, 63, -117, 59, -117, 49)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Content/Godot"]
+material = ExtResource("2_l0ylj")
+polygon = PackedVector2Array(-8, -2, -3, -7, 4, -7, 9, -2, 9, 28, 5, 32, -4, 32, -9, 28)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Content/Godot"]
+material = ExtResource("2_l0ylj")
+polygon = PackedVector2Array(-85, -8, -78, -17, -67, -23, -53, -21, -40, -11, -36, 0, -36, 13, -44, 24, -55, 30, -68, 30, -77, 25, -84, 18, -89, 7, -87, -2)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Content/Godot"]
+material = ExtResource("2_l0ylj")
+position = Vector2(124, 0)
+polygon = PackedVector2Array(-85, -8, -78, -17, -67, -23, -53, -21, -40, -11, -36, 0, -36, 13, -44, 24, -55, 30, -68, 30, -77, 25, -84, 18, -89, 7, -87, -2)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Content/Godot"]
+material = ExtResource("2_l0ylj")
+color = Color(0.223529, 0.219608, 0.227451, 1)
+polygon = PackedVector2Array(-61, -10, -70, -7, -74, 0, -76, 9, -71, 17, -63, 22, -52, 21, -45, 15, -42, 7, -44, -1, -49, -6, -55, -9)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Content/Godot"]
+material = ExtResource("2_l0ylj")
+position = Vector2(118, 0)
+color = Color(0.223529, 0.219608, 0.227451, 1)
+polygon = PackedVector2Array(-61, -10, -70, -7, -74, 0, -76, 9, -71, 17, -63, 22, -52, 21, -45, 15, -42, 7, -44, -1, -49, -6, -55, -9)
+
+[node name="Title" type="RichTextLabel" parent="Content"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 539.0
+offset_right = 800.0
+offset_bottom = 599.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_diq44")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][wave]MADE WITH [color=ee8f57]GODOT[/color][wave][center]"
+scroll_active = false
+metadata/_edit_use_anchors_ = true

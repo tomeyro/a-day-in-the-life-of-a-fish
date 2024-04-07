@@ -1,0 +1,179 @@
+[gd_scene load_steps=5 format=3 uid="uid://b537rt6y1ehkn"]
+
+[ext_resource type="Material" uid="uid://bfc34sndr1832" path="res://res/materials/shake/shake_material.tres" id="1_qxtxi"]
+[ext_resource type="PackedScene" uid="uid://dlb82mjmfpqtn" path="res://src/entities/player/projectile_sprite.tscn" id="2_fq188"]
+[ext_resource type="PackedScene" uid="uid://ckr1vgrk7j3a0" path="res://src/environment/bubble/bubble.tscn" id="3_q8b0y"]
+[ext_resource type="FontFile" uid="uid://07jtmouf4f6t" path="res://res/fonts/catfiles/Catfiles.ttf" id="4_kqjgq"]
+
+[node name="Screenshot" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 86.0
+offset_top = 65.0
+offset_right = 716.0
+offset_bottom = 565.0
+color = Color(1, 1, 1, 0.141176)
+metadata/_edit_lock_ = true
+
+[node name="ClownFish" type="Node2D" parent="."]
+position = Vector2(395, 434)
+scale = Vector2(5, 5)
+metadata/_edit_group_ = true
+
+[node name="FingTopRight" type="Polygon2D" parent="ClownFish"]
+material = ExtResource("1_qxtxi")
+color = Color(0.552941, 0.278431, 0.0941176, 1)
+polygon = PackedVector2Array(18, -10, 14, -18, 3, -21, -3, -17, 1, -9)
+
+[node name="FingTopLeft" type="Polygon2D" parent="ClownFish"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-21, 5)
+color = Color(0.552941, 0.278431, 0.0941176, 1)
+polygon = PackedVector2Array(18, -10, 14, -18, 3, -21, -3, -17, 1, -9)
+
+[node name="FingBottomRight" type="Polygon2D" parent="ClownFish"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-21, 5)
+color = Color(0.552941, 0.278431, 0.0941176, 1)
+polygon = PackedVector2Array(27, 3, 41, 4, 36, 12, 29, 16, 23, 14)
+
+[node name="FingBottomLeft" type="Polygon2D" parent="ClownFish"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-42, 0)
+color = Color(0.552941, 0.278431, 0.0941176, 1)
+polygon = PackedVector2Array(27, 3, 41, 4, 36, 12, 29, 16, 23, 14, 21, 7)
+
+[node name="Body" type="Polygon2D" parent="ClownFish"]
+material = ExtResource("1_qxtxi")
+color = Color(0.933333, 0.560784, 0.341176, 1)
+polygon = PackedVector2Array(29, -9, 33, -3, 33, 1, 30, 3, 33, 4, 33, 7, 27, 11, 12, 13, -10, 12, -25, 6, -33, 9, -33, 9, -33, -10, -25, -6, -9, -11, 12, -14, 23, -12)
+
+[node name="StripeRight" type="Polygon2D" parent="ClownFish"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-42, 0)
+color = Color(0.235294, 0.101961, 0.0196078, 1)
+polygon = PackedVector2Array(44, -10, 46, -2, 46, 5, 46, 10, 51, 13, 53, 9, 53, 2, 52, -6, 50, -11, 47, -13)
+
+[node name="StripeLeft" type="Polygon2D" parent="ClownFish"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-61, -1)
+color = Color(0.235294, 0.101961, 0.0196078, 1)
+polygon = PackedVector2Array(46, -6, 46, -2, 46, 5, 46, 9, 49, 12, 52, 9, 53, 2, 52, -6, 49, -9)
+
+[node name="Eye" type="Polygon2D" parent="ClownFish"]
+material = ExtResource("1_qxtxi")
+position = Vector2(46, 27)
+rotation = -0.120999
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-22.3366, -39.9885, -24.8047, -36.2591, -22.1888, -32.919, -19.7206, -36.6483)
+
+[node name="Projectile" parent="." instance=ExtResource("2_fq188")]
+show_behind_parent = true
+position = Vector2(532, 164)
+scale = Vector2(4, -4)
+
+[node name="Pike" type="Node2D" parent="."]
+position = Vector2(332, 119)
+scale = Vector2(-3, 3)
+metadata/_edit_group_ = true
+
+[node name="TeethTop" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(20, 1, 22, 3, 23, 1, 25, 2, 25, 0, 28, 2, 28, 0, 30, 1, 30, -1, 32, 0, 32, -2, 34, -1, 34, -3)
+
+[node name="TeethBottom" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+position = Vector2(49, 21)
+rotation = -2.5176
+color = Color(0.807843, 0.807843, 0.807843, 1)
+polygon = PackedVector2Array(20, 1, 22, 3, 23, 1, 25, 2, 25, 0, 28, 2, 28, 0, 30, 1, 30, -1, 32, 0, 32, -2, 34, -1, 34, -3)
+
+[node name="FingTopRight" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-7, 9)
+color = Color(0.517647, 0.47451, 0.2, 1)
+polygon = PackedVector2Array(7, -11, 11, -16, 9, -20, 1, -23, -6, -17, 1, -9)
+
+[node name="FingBottomRight" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-24, 1)
+color = Color(0.517647, 0.47451, 0.2, 1)
+polygon = PackedVector2Array(27, 3, 41, 4, 36, 12, 29, 16, 23, 14)
+
+[node name="FingBottomLeft" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-43, -2)
+color = Color(0.517647, 0.47451, 0.2, 1)
+polygon = PackedVector2Array(27, 3, 41, 4, 36, 12, 29, 16, 23, 14, 21, 7)
+
+[node name="Body" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+color = Color(0.768627, 0.654902, 0.368627, 1)
+polygon = PackedVector2Array(27, -7, 34, -3, 27, 0, 20, 2, 27, 4, 34, 7, 25, 11, 18, 10, 13, 7, 3, 11, -8, 9, -24, 2, -33, 8, -33, 9, -33, -7, -24, -1, -8, -6, 2, -8, 13, -5, 21, -8)
+
+[node name="StripeRight" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-43, 1)
+color = Color(0.235294, 0.101961, 0.0196078, 1)
+polygon = PackedVector2Array(45, -5, 46, -2, 47, 1, 49, 4, 50, 5, 51, 4, 52, 0, 53, -4, 49, -7, 46, -7)
+
+[node name="StripeLeft" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+position = Vector2(-59, -1)
+color = Color(0.235294, 0.101961, 0.0196078, 1)
+polygon = PackedVector2Array(46, -1, 45, 1, 47, 5, 50, 7, 53, 6, 55, 1, 52, -1, 49, -3)
+
+[node name="Eye" type="Polygon2D" parent="Pike"]
+material = ExtResource("1_qxtxi")
+position = Vector2(48, 30)
+rotation = -0.120999
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-22.578, -38.0031, -24.684, -37.2518, -22.9401, -35.025, -19.7206, -36.6483)
+
+[node name="Bubble" parent="." instance=ExtResource("3_q8b0y")]
+position = Vector2(195, 488)
+active = false
+
+[node name="Bubble2" parent="." instance=ExtResource("3_q8b0y")]
+position = Vector2(272, 352)
+active = false
+
+[node name="Bubble3" parent="." instance=ExtResource("3_q8b0y")]
+position = Vector2(216, 160)
+active = false
+
+[node name="Bubble4" parent="." instance=ExtResource("3_q8b0y")]
+position = Vector2(555, 101)
+active = false
+
+[node name="Bubble5" parent="." instance=ExtResource("3_q8b0y")]
+position = Vector2(495, 273)
+active = false
+
+[node name="Bubble6" parent="." instance=ExtResource("3_q8b0y")]
+position = Vector2(660, 517)
+active = false
+
+[node name="Title" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = 191.0
+offset_right = 794.0
+offset_bottom = 395.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_kqjgq")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center][wave]A day in the 
+life of a [color=ee8f57]fish[/color][wave][center]"
+fit_content = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true

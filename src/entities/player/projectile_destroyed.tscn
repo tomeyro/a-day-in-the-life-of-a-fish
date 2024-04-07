@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbhhj1fhlmxaq"]
+
+[ext_resource type="Script" path="res://src/entities/player/projectile_destroyed.gd" id="1_dm2nf"]
+
+[sub_resource type="Gradient" id="Gradient_m5l77"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="ProjectileDestroyed" type="Node2D"]
+script = ExtResource("1_dm2nf")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 12
+lifetime = 2.0
+explosiveness = 0.85
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(2.08165e-12, -90)
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+angle_min = -90.0
+angle_max = 90.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_m5l77")

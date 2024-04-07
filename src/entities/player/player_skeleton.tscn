@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfsugxg8fgtjb"]
+
+[ext_resource type="Script" path="res://src/entities/player/player_skeleton.gd" id="1_nujdk"]
+[ext_resource type="Material" uid="uid://bfc34sndr1832" path="res://res/materials/shake/shake_material.tres" id="2_u1o31"]
+
+[sub_resource type="Animation" id="Animation_4567j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d3jh8"]
+resource_name = "floating"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-15, 2.08165e-12), Vector2(15, 2.08165e-12), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ba47j"]
+_data = {
+"RESET": SubResource("Animation_4567j"),
+"floating": SubResource("Animation_d3jh8")
+}
+
+[node name="Skeleton" type="Node2D"]
+script = ExtResource("1_nujdk")
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Skeleton" type="Node2D" parent="Sprite"]
+scale = Vector2(1, -1)
+
+[node name="Body" type="Polygon2D" parent="Sprite/Skeleton"]
+material = ExtResource("2_u1o31")
+color = Color(0.815686, 0.85098, 0.858824, 1)
+polygon = PackedVector2Array(29, -9, 33, -3, 30, -1, 20, 3, 30, 5, 33, 7, 27, 11, 12, 13, 11, 1, 5, 1, 4, 12, 1, 10, 1.99699, 0.307465, -2, 0, -4.06671, 0.103336, -5, 12, -7, 12, -6.57606, 0.228804, -14, 1, -15, 12, -16, 12, -15.9277, 0.696384, -22, 1, -33, 9, -33, 9, -33, 5, -26, 1, -33, 1, -33, -2, -26, -2, -33, -6, -33, -10, -22, -4, -17, -3, -16, -12, -15, -13, -15, -2, -8, -2, -8, -12, -7, -14, -5.47017, -2.13315, 1.98147, -2.52534, 2, -12, 4, -13, 6, -3, 11, -3, 12, -14, 23, -12)
+
+[node name="Eye" type="Polygon2D" parent="Sprite/Skeleton"]
+material = ExtResource("2_u1o31")
+position = Vector2(46, 27)
+rotation = -0.120999
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-22.3366, -39.9885, -24.8047, -36.2591, -22.1888, -32.919, -19.7206, -36.6483)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ba47j")
+}
+autoplay = "floating"

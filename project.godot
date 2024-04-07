@@ -1,0 +1,63 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="A Day in the Life of a Fish"
+run/main_scene="res://src/scenes/splash/splash.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.105882, 0.576471, 0.654902, 1)
+boot_splash/show_image=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://src/autoloads/globals.gd"
+Signals="*res://src/autoloads/signals.gd"
+SceneManager="*res://src/autoloads/scene_manager/scene_manager.tscn"
+Cursor="*res://src/autoloads/cursor/cursor.tscn"
+AudioManager="*res://src/autoloads/audio_manager.gd"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+
+[input]
+
+move={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+shoot={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="player_hurtbox"
+2d_physics/layer_3="player_hitbox"
+2d_physics/layer_4="enemy"
+2d_physics/layer_5="enemy_hurtbox"
+2d_physics/layer_6="enemy_hitbox"
+2d_physics/layer_7="world"
+2d_physics/layer_8="sardines"
+2d_physics/layer_9="projectile"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.105882, 0.576471, 0.654902, 1)

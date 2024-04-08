@@ -11,3 +11,7 @@ var player_position: Vector2:
 		
 var level: Level
 var intro_done := false
+
+
+func get_window_size() -> float:
+	return min(get_window().size.x, get_window().size.y)

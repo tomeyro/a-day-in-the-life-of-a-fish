@@ -12,6 +12,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_84k04"]
 shader = ExtResource("5_eu2xm")
 shader_parameter/percentage = 100.0
+shader_parameter/size = 800.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_55823")

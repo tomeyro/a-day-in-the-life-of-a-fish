@@ -12,7 +12,10 @@ class_name Level
 func _ready() -> void:
 	super._ready()
 	
+	AudioManager.play_music("ingame")
+	
 	Signals.update_enemy_life.connect(_update_enemy_life_ui)
+	get_window().size_changed.connect(_update_enemy_life_ui)
 	Signals.enemy_dead.connect(_on_enemy_dead)
 	Signals.player_dead.connect(_on_player_dead)
 	
@@ -23,8 +26,12 @@ func _ready() -> void:
 	_update_enemy_life_ui(100)
 	intro()
 
-func _update_enemy_life_ui(new_life):
-	(enemy_life.material as ShaderMaterial).set_shader_parameter("percentage", new_life)
+func _update_enemy_life_ui(new_life := -1):
+	var material := enemy_life.material as ShaderMaterial
+	material.set_shader_parameter("size", Globals.get_window_size())
+	if new_life == -1:
+		new_life = material.get_shader_parameter("percentage")
+	material.set_shader_parameter("percentage", new_life)
 
 func _on_enemy_dead():
 	survived.visible = true

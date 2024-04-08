@@ -15,7 +15,7 @@ run/main_scene="res://src/scenes/splash/splash.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.105882, 0.576471, 0.654902, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
@@ -23,13 +23,17 @@ Globals="*res://src/autoloads/globals.gd"
 Signals="*res://src/autoloads/signals.gd"
 SceneManager="*res://src/autoloads/scene_manager/scene_manager.tscn"
 Cursor="*res://src/autoloads/cursor/cursor.tscn"
-AudioManager="*res://src/autoloads/audio_manager.gd"
+AudioManager="*res://src/autoloads/audio_manager/audio_manager.tscn"
 
 [display]
 
 window/size/viewport_width=800
 window/size/viewport_height=800
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [input]
 

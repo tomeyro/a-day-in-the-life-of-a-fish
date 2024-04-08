@@ -48,9 +48,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 115.0
+offset_left = 140.0
 offset_top = 720.0
-offset_right = 215.0
+offset_right = 240.0
 offset_bottom = 760.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -73,9 +73,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 389.0
+offset_left = 376.0
 offset_top = 720.0
-offset_right = 489.0
+offset_right = 476.0
 offset_bottom = 760.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -98,9 +98,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 615.0
+offset_left = 602.0
 offset_top = 720.0
-offset_right = 735.0
+offset_right = 722.0
 offset_bottom = 760.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -118,11 +118,21 @@ scale = Vector2(0.8, 0.8)
 mouse_side = 1
 
 [node name="Start" parent="UI" instance=ExtResource("8_xsmlv")]
-position = Vector2(284, 672)
+position = Vector2(228, 672)
 text = "Start"
 
 [node name="Credits" parent="UI" instance=ExtResource("8_xsmlv")]
-position = Vector2(515, 672)
+position = Vector2(571, 672)
+
+[node name="Sound" parent="UI" instance=ExtResource("8_xsmlv")]
+position = Vector2(406, 673)
+scale = Vector2(0.5, 0.5)
+text = "     on"
+
+[node name="Polygon2D2" type="Polygon2D" parent="UI/Sound"]
+position = Vector2(-6, 0)
+color = Color(0.137255, 0.137255, 0.137255, 1)
+polygon = PackedVector2Array(-36, -12, -36, 8, -40, 8, -42, 10, -42, 14, -38, 16, -32, 12, -32, -6, -20, -8, -20, 4, -24, 4, -26, 6, -26, 10, -22, 12, -16, 8, -16, -16)
 
 [node name="Credits" type="CanvasLayer" parent="."]
 layer = 2
@@ -147,8 +157,13 @@ offset_right = 715.0
 offset_bottom = 518.0
 bbcode_enabled = true
 text = "[wave][center]
-Game for the [color=ee8f57][b]Fish Fesh Jam[/b][/color]
+Game for the [color=ee8f57][b]Fish Fest Jam[/b][/color]
+
+Code, Art, and Sfx
 by [url={\"url\": \"https://tomeyro.itch.io\"}]Tomeyro[/url]
+
+Music
+by [url={\"url\": \"https://gatozerogames.itch.io\"}]Gato Zero[/url]
 
 Free font \"Catfiles\"
 by [url={\"url\":\"https://www.behance.net/khurasan\"}]Khurasan[/url]
@@ -156,5 +171,6 @@ by [url={\"url\":\"https://www.behance.net/khurasan\"}]Khurasan[/url]
 
 [connection signal="clicked" from="UI/Start" to="." method="_on_start_clicked"]
 [connection signal="clicked" from="UI/Credits" to="." method="_on_credits_clicked"]
+[connection signal="clicked" from="UI/Sound" to="." method="_on_sound_clicked"]
 [connection signal="clicked" from="Credits/Credits/CloseCredits" to="." method="_on_close_credits_clicked"]
 [connection signal="meta_clicked" from="Credits/Credits/RichTextLabel" to="." method="_on_credits_label_meta_clicked"]

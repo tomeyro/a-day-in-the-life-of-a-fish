@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 uniform float percentage = 100.0;
+uniform float size = 800.0;
 
 const float shake = 3.0;
 
@@ -15,7 +16,7 @@ void vertex() {
 
 void fragment() {
 	if (percentage < 100.0) {
-		float p = (800.0 * percentage) / 100.0;
+		float p = (size * percentage) / 100.0;
 		if (VERTEX.x > p) {
 			COLOR.a = 0.2;
 		}
